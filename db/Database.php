@@ -1,8 +1,8 @@
 <?php
 
-namespace app\core\db;
+namespace Y2thek\PhpMvcframeworkCore\db;
 
-use app\core\Application;
+use Y2thek\PhpMvcframeworkCore\Application;
 
 class Database{
 

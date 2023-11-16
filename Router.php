@@ -1,10 +1,10 @@
 <?php
 
-namespace app\core;
+namespace Y2thek\PhpMvcframeworkCore;
 
-use app\core\Request;
-use app\core\Controller;
-use app\core\exception\NotFoundException;
+use Y2thek\PhpMvcframeworkCore\Request;
+use Y2thek\PhpMvcframeworkCore\Controller;
+use Y2thek\PhpMvcframeworkCore\exception\NotFoundException;
 
 class Router{
     protected array $routes;

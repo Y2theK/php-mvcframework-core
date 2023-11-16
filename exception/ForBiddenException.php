@@ -1,6 +1,6 @@
 <?php
 
-namespace app\core\exception;
+namespace Y2thek\PhpMvcframeworkCore\exception;
 
 
 class ForBiddenException extends \Exception

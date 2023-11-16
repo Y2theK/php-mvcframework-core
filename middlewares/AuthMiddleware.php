@@ -1,10 +1,10 @@
 <?php 
 
-namespace app\core\middlewares;
+namespace Y2thek\PhpMvcframeworkCore\middlewares;
 
-use app\core\Application;
-use app\core\middlewares\BaseMiddleware;
-use app\core\exception\ForBiddenException;
+use Y2thek\PhpMvcframeworkCore\Application;
+use Y2thek\PhpMvcframeworkCore\middlewares\BaseMiddleware;
+use Y2thek\PhpMvcframeworkCore\exception\ForBiddenException;
 
 class AuthMiddleware extends BaseMiddleware
 {

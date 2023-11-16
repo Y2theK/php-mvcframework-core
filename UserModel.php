@@ -1,8 +1,8 @@
 <?php
 
-namespace app\core;
+namespace Y2thek\PhpMvcframeworkCore;
 
-use app\core\db\DbModel;
+use Y2thek\PhpMvcframeworkCore\db\DbModel;
 
 abstract class UserModel extends DbModel
 {

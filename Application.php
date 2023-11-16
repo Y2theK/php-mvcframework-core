@@ -1,15 +1,14 @@
 <?php
 
-namespace app\core;
+namespace Y2thek\PhpMvcframeworkCore;
 
-use app\core\View;
-use app\core\Router;
-use app\core\Request;
-use app\core\Session;
-use app\core\Response;
-use app\core\UserModel;
-use app\core\db\DbModel;
-use app\core\db\Database;
+use Y2thek\PhpMvcframeworkCore\View;
+use Y2thek\PhpMvcframeworkCore\Router;
+use Y2thek\PhpMvcframeworkCore\Request;
+use Y2thek\PhpMvcframeworkCore\Session;
+use Y2thek\PhpMvcframeworkCore\Response;
+use Y2thek\PhpMvcframeworkCore\UserModel;
+use Y2thek\PhpMvcframeworkCore\db\Database;
 
 class Application{
 
@@ -78,7 +77,7 @@ class Application{
         try {
             echo $this->router->resolve();
         } catch (\Exception $e) {
-            $this->response->setStatusCode($e->getCode());
+            $this->response->setStatusCode((int)$e->getCode());
             echo $this->view->renderView('errors/error',[
                 'exception' => $e
             ]);

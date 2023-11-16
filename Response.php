@@ -1,6 +1,6 @@
 <?php
 
-namespace app\core;
+namespace Y2thek\PhpMvcframeworkCore;
 
 class Response{
     public function setStatusCode(int $code)

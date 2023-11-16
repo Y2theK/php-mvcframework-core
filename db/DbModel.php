@@ -1,9 +1,9 @@
 <?php
 
-namespace app\core\db;
+namespace Y2thek\PhpMvcframeworkCore\db;
 
-use app\core\Model;
-use app\core\Application;
+use Y2thek\PhpMvcframeworkCore\Model;
+use Y2thek\PhpMvcframeworkCore\Application;
 
 
 abstract class DbModel extends Model

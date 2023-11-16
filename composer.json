@@ -2,7 +2,7 @@
     "name": "y2thek/php-mvcframework-core",
     "autoload": {
         "psr-4": {
-            "Y2thek\\PhpMvcframeworkCore\\": "src/"
+            "Y2thek\\PhpMvcframeworkCore\\": "."
         }
     },
     "authors": [

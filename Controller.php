@@ -1,8 +1,8 @@
 <?php
 
-namespace app\core;
+namespace Y2thek\PhpMvcframeworkCore;
 
-use app\core\middlewares\BaseMiddleware;
+use Y2thek\PhpMvcframeworkCore\middlewares\BaseMiddleware;
 
 class Controller{
 
