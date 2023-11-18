@@ -12,6 +12,11 @@ use Y2thek\PhpMvcframeworkCore\db\Database;
 
 class Application{
 
+    const EVENT_BEFORE_REQUEST = 'beforeRequest';
+    const EVENT_AFTER_REQUEST = 'afterRequest';
+
+    protected array $eventListeners = [];
+
     public string $layout = 'main';
 
     public Router $router;
@@ -30,6 +35,8 @@ class Application{
 
     public function __construct(string $rootPath,array $config)
     {
+      
+
         self::$app = $this;
         self::$ROOT_DIR = $rootPath;
         $this->request = new Request();
@@ -74,6 +81,7 @@ class Application{
         return !self::$app->user;
     }
     public function run(){
+        $this->triggerEvent(self::EVENT_BEFORE_REQUEST);
         try {
             echo $this->router->resolve();
         } catch (\Exception $e) {
@@ -81,6 +89,17 @@ class Application{
             echo $this->view->renderView('errors/error',[
                 'exception' => $e
             ]);
+        }
+    }
+    public function on($eventName,$callback){
+        $this->eventListeners[$eventName][] = $callback;
+    }
+    public function triggerEvent($eventName){
+        
+        $callbacks = $this->eventListeners[$eventName] ?? [];
+       
+        foreach ($callbacks as $callback) {
+            call_user_func($callback);
         }
     }
 }
