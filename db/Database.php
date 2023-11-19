@@ -9,8 +9,8 @@ class Database{
     public \PDO $pdo;
     public function __construct($config)
     {
-        $dsn = $config['dsn'];
-        $user = $config['user'];
+        $dsn = "$config[connection]:host=$config[host];port=$config[port];dbname=$config[database]";
+        $user = $config['username'];
         $password = $config['password'];
         try {
             $this->pdo = new \PDO($dsn,$user,$password);
