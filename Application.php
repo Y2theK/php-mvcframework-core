@@ -43,8 +43,8 @@ class Application{
         $this->response = new Response();
         $this->session = new Session();
         $this->router = new Router($this->request,$this->response);
-        $this->db = new Database($config['db']);
         $this->view = new View();
+        $this->db = new Database($config['db']);
 
 
         $this->userClass = $config['userClass'];
@@ -53,8 +53,8 @@ class Application{
         
         if($primaryValue){
             $primaryKey = $this->userClass::primaryKey();
-
-           $this->user =  $this->userClass::findOne([$primaryKey => $primaryValue]);
+            
+            $this->user =  $this->userClass::findOne([$primaryKey => $primaryValue]);
         }else{
             $this->user = null;
         }

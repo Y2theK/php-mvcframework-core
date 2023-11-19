@@ -36,7 +36,10 @@ abstract class DbModel extends Model
      
                return true;
           } catch (\Throwable $e) {
-               # code...
+               echo '<pre>';
+               var_dump($e);
+               echo '</pre>';
+               exit;
           }
        
      }
@@ -56,13 +59,23 @@ abstract class DbModel extends Model
 
           $sql = implode("AND ",array_map(fn($attr) => "$attr = :$attr",$attributes));
 
-          $statement = self::prepare("SELECT * FROM $tableName WHERE $sql");
-          foreach ($where as $key => $value) {
-               $statement->bindValue(":$key",$value);
-          }
-          $statement->execute();
+          try {
+               $statement = self::prepare("SELECT * FROM $tableName WHERE $sql");
+               foreach ($where as $key => $value) {
+                    $statement->bindValue(":$key",$value);
+               }
+               $statement->execute();
+               
+               $data = $statement->fetchObject(static::class);  //return false or object
 
-          return $statement->fetchObject(static::class);
+               return $data === false ? null : $data;
+
+          } catch (\Throwable $e) {
+               echo '<pre>';
+               var_dump($e);
+               echo '</pre>';
+               exit;
+          }
 
           
 

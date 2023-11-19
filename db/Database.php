@@ -12,8 +12,16 @@ class Database{
         $dsn = $config['dsn'];
         $user = $config['user'];
         $password = $config['password'];
-        $this->pdo = new \PDO($dsn,$user,$password);
-        $this->pdo->setAttribute(\PDO::ATTR_ERRMODE,\PDO::ERRMODE_EXCEPTION);
+        try {
+            $this->pdo = new \PDO($dsn,$user,$password);
+            $this->pdo->setAttribute(\PDO::ATTR_ERRMODE,\PDO::ERRMODE_EXCEPTION);
+        } catch (\Throwable $e) {
+            echo '<pre>';
+            var_dump($e);
+            echo '</pre>';
+            exit;
+        }
+        
     }
     public function applyMigrations()
     {
